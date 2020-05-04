@@ -1,17 +1,28 @@
-<template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<template lang="pug">
+  #app.mt-3
+    .container
+      .row
+        .col-12.pb-3
+          h1 Interactive Calculators
+      .row
+        .col-12
+          b-card(no-body)
+            b-tabs(card)
+              b-tab(title="Bill Splitter & Tip Calculator")
+                BillSplitter
+              b-tab(title="Compound Growth Calculator")
+                CompoundCalculator
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BillSplitter from './components/BillSplitter.vue'
+import CompoundCalculator from './components/CompoundCalculator.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    BillSplitter,
+    CompoundCalculator
   }
 }
 </script>
@@ -23,6 +34,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
