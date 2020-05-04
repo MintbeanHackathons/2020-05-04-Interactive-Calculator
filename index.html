@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <header>
+                <h1>Tip Calculator</h1>
+            </header>
+            <main>
+                <section class="options">
+                    <div class="inputs">
+                        <div class="dollar">$</div>
+                        <input type="number" class="cost" placeholder="Cost of the service">
+                    </div>
+                    <div class="inputs">
+                        <select class="service" required>
+                            <option disabled selected>How Was It?</option>
+                            <option value="30">5 - Excellent</option>
+                            <option value="20">4 - Great</option>
+                            <option value="10">3 - Good</option>
+                            <option value="5">2 - Okay</option>
+                            <option value="0">1 - Horrible</option>
+                        </select>
+                    </div>
+                    <div class="inputs">
+                        <input type="number" class="people" placeholder="How many are sharing the bill?" />
+                       </div>
+                </section>
+                <section class="tip-wrap">
+                    <p>You should tip: </p>
+                    <h3 class="tip">$0</h3>
+                   </section>
+            </main>
+            <footer>
+                <button id="tip-btn">Tip</button>
+               </footer>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
