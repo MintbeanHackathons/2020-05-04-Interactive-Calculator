@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom left, #D046D4, #3BDAC5), url('https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80');
+    background-blend-mode: screen;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    height: 60vh;
+    background: #fff;
+    border-radius: 16px;
+    overflow-x: hidden;
+    box-shadow: 0px 0px 20px grey;
+}
+
+.calculator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #A961BE;
+    padding: 10px 15px;
+    box-shadow: 0px 3px 12px darkgrey;
+}
+
+h1 {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 2em;
+    text-align: center;
+}
+
+main {
+    flex: 1 1 100%;
+    padding: 20px 15px;  
+}
+
+.inputs {
+    display: flex;
+    margin-bottom:20px;
+}
+
+.dollar {
+    display: flex;
+    justify-content: center;
+    padding: 10px 15px;
+    color: #212121;
+    font-size: 18px;
+    border-bottom: 3px solid #A961BE;
+    background: #EEE;
+    border-radius: 8px 0px 0px 0px;
+}
+
+
+input {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    border-bottom: 3px solid #A961BE;
+    color: #212121;
+    font-size: 18px;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    display: block;
+    width: 100%;
+    border-bottom: 3px solid #A961BE;
+    border-radius: 0px;
+    color: #212121;
+    font-size: 16px;
+    padding: 10px 15px;
+   }
+
+   .tip-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+p {
+    color: #212121;
+    font-size: 18px;
+    margin-bottom: 15px;
+   }
+
+   .tip {
+    padding: 15px 25px;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(to right, #D046D4, #3BDAC5);
+    color: #FFF;
+   }
+
+   footer {
+    box-shadow: 0px -3px 12px rgba(0, 0, 0, 0.2);
+   }
+
+   button {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    appearance: none;
+    border: none;
+    outline: none;
+    background-image: linear-gradient(to left, #D046D4, #3BDAC5);
+    
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+   }
