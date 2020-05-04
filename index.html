@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css" />
+    <title>Calculator</title>
+</head>
+
+<body>
+    <header style="background-color: goldenrod;" class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1>Versatile Carculator</h1>
+            <div class="row">
+                <div class="col">
+                    <div id="accordion">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#HexToText"
+                                        aria-expanded="true" aria-controls="collapseOne">
+                                        Hex to Text
+                                    </button>
+                                </h5>
+                            </div>
+
+                            <div id="HexToText" class="collapse" aria-labelledby="headingOne"
+                                 aria-expanded="true">
+                                <div class="card-body">
+                                    <div class="form-group green-border-focus">
+                                        <label for="hexInput">Hex Value:</label>
+                                        <textarea class="form-control rounded-0" rows="5" id="hexInput" value=""
+                                            placeholder="Hex input..."></textarea>
+                                            <p style="color: red" id="errorMsg"></p>
+                                        <div class="row d-flex align-items-center mb-3 mt-4">
+
+
+                                            <div class="col-md-12">
+                                                <div class="text-left">
+                                                    <button type="button"
+                                                        onclick="convertHex(document.getElementById('hexInput').value)"
+                                                        class="btn btn-outline-success btn-rounded z-depth-1a">Convert</button>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                        <label for="textOutput">Text Output:</label>
+                                        <textarea class="form-control rounded-0" rows="5" id="textOutput" value=""
+                                            disabled placeholder="Text Output..."></textarea>
+                                            
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse"
+                                        data-target="#TextToHex" aria-expanded="false" aria-controls="collapseTwo">
+                                        Text to Hex
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="TextToHex" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="form-group green-border-focus">
+                                        <label for="hexInput">Hex Value:</label>
+                                        <textarea class="form-control rounded-0" rows="5" id="textInput" value=""
+                                            placeholder="Text input..."></textarea>
+
+                                        <div class="row d-flex align-items-center mb-3 mt-4">
+
+
+                                            <div class="col-md-12">
+                                                <div class="text-left">
+                                                    <button type="button"
+                                                        onclick="convertText(document.getElementById('textInput').value)"
+                                                        class="btn btn-outline-success btn-rounded z-depth-1a">Convert</button>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                        <label for="textOutput">Text Output:</label>
+                                        <textarea class="form-control rounded-0" rows="5" id="hexOutput" value=""
+                                            disabled placeholder="Text Output..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script>
+
+        const hexInput = document.querySelector('#hexInput');
+        const textOutput = document.querySelector('#textOutput');
+        const errorMsg = document.querySelector('#errorMsg');
+        const hexInputValidation = new RegExp(/^([0-9A-Fa-f]{2})+$/g);
+
+        function convertHex(hexInput) {
+            errorMsg.innerHTML = "";
+            if(hexInput.match(hexInputValidation)){
+            let hex = hexInput.toString();
+            console.log(hex)
+            let str = '';
+            for (let i = 0; (i < hex.length && hex.substr(i, 2) !== '00'); i += 2) {
+
+                str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+            }
+            textOutput.innerHTML = str;
+            }
+            else
+            {
+            errorMsg.innerHTML ="The entered value is not Hex value"
+            }
+        }
+
+        function convertText(textInput) {
+            console.log("function was triggered");
+            console.log(hexInput)
+            let arr = [];
+            for (let i = 0, l =textInput.length; i <l; i++){
+                let hex = Number(textInput.charCodeAt(i)).toString(16);
+                arr.push(hex)
+            }
+            hexOutput.innerHTML = arr.join('');
+            return arr.join('');
+        }
+    </script>
+
+</body>
+
+</html>
