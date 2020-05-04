@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Load React. -->
+	<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+	<!-- Load our React component. -->
+	<script src="index.js"></script>
+	<title>Calculator</title>
+</head>
+<body>
+	<!-- TODO: make this into a Bit react component -->
+	<div>
+		<label for="numberOfPeople">number of people</label>
+		<input id="number-of-people" type="number"/>
+	</div>
+	<!-- end todo -->
+	<div>
+		<label for="total-bill">bill</label>
+		<input id="total-bill" type="number"/>
+	</div>
+	<!-- TODO: make this into a bit react component -->
+	<div>
+		<!-- loop over number of people to create dynamicly -->
+		<div>		
+			<img src="user image || default image">
+			<!-- TODO: add some for of switching from % => $$ => split evenly. for now will default to split evenly -->
+		</div>
+	</div>
+</body>
+</html>
