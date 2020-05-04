@@ -51,6 +51,25 @@
         .row
           .col-6.text-right Return
           .col-6.text-left {{investmentAfter.toFixed(2)}}
+        .row
+          .col-12
+            b-button(variant="success" @click="save") Save
+    .card.mt-4(v-if="data.length > 0")
+      .card-header
+        H4 History
+      .card-body
+        .row
+          .col Amount
+          .col Compounded
+          .col Interest %
+          .col # of periods
+          .col Return
+        .row(v-for=("data in data"))
+          .col {{data.amount}}
+          .col {{data.PeriodType}}
+          .col {{data.interest}}
+          .col {{data.periods}}
+          .col {{data.return.toFixed(2)}}
 </template>
 <script>
 export default {
@@ -59,12 +78,22 @@ export default {
       amount: 100,
       interest: 10,
       periods: 4,
-      PeriodType: "Monthly"
+      PeriodType: "Monthly",
+      data: []
     };
   },
   methods: {
     setPeriodType(type) {
       this.PeriodType = type;
+    },
+    save() {
+      this.data.push({
+        amount: this.amount,
+        interest: this.interest,
+        periods: this.periods,
+        PeriodType: this.PeriodType,
+        return: this.investmentAfter
+      });
     }
   },
   computed: {
