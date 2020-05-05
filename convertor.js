@@ -22,13 +22,8 @@
         }
 
         function convertText(textInput) {
-            console.log("function was triggered");
-            console.log(hexInput)
-            let arr = [];
-            for (let i = 0, l =textInput.length; i <l; i++){
-                let hex = Number(textInput.charCodeAt(i)).toString(16);
-                arr.push(hex)
-            }
-            hexOutput.innerHTML = arr.join('');
-            return arr.join('');
+            const map = Array.prototype.map;
+            const arr1 = map.call(textInput, letter => letter.charCodeAt(0).toString(16));
+            hexOutput.innerHTML = arr1.join('').toUpperCase();
+            return arr1.join('');
         }
