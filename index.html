@@ -12,7 +12,7 @@
 <body>
     <header style="background-color: goldenrod;" class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1>Versatile Carculator</h1>
+            <h1>Engineering Calculator</h1>
             <div class="row">
                 <div class="col">
                     <div id="accordion">
@@ -68,7 +68,7 @@
                             <div id="TextToHex" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                                 <div class="card-body">
                                     <div class="form-group green-border-focus">
-                                        <label for="hexInput">Hex Value:</label>
+                                        <label for="hexInput">Text Value:</label>
                                         <textarea class="form-control rounded-0" rows="5" id="textInput" value=""
                                             placeholder="Text input..."></textarea>
 
@@ -86,9 +86,9 @@
 
                                         </div>
 
-                                        <label for="textOutput">Text Output:</label>
+                                        <label for="textOutput">Hex Output:</label>
                                         <textarea class="form-control rounded-0" rows="5" id="hexOutput" value=""
-                                            disabled placeholder="Text Output..."></textarea>
+                                            disabled placeholder="Hex Output..."></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -107,42 +107,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-    <script>
+    <script> src="index.html"
 
-        const hexInput = document.querySelector('#hexInput');
-        const textOutput = document.querySelector('#textOutput');
-        const errorMsg = document.querySelector('#errorMsg');
-        const hexInputValidation = new RegExp(/^([0-9A-Fa-f]{2})+$/g);
-
-        function convertHex(hexInput) {
-            errorMsg.innerHTML = "";
-            if(hexInput.match(hexInputValidation)){
-            let hex = hexInput.toString();
-            console.log(hex)
-            let str = '';
-            for (let i = 0; (i < hex.length && hex.substr(i, 2) !== '00'); i += 2) {
-
-                str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
-            }
-            textOutput.innerHTML = str;
-            }
-            else
-            {
-            errorMsg.innerHTML ="The entered value is not Hex value"
-            }
-        }
-
-        function convertText(textInput) {
-            console.log("function was triggered");
-            console.log(hexInput)
-            let arr = [];
-            for (let i = 0, l =textInput.length; i <l; i++){
-                let hex = Number(textInput.charCodeAt(i)).toString(16);
-                arr.push(hex)
-            }
-            hexOutput.innerHTML = arr.join('');
-            return arr.join('');
-        }
+        
     </script>
 
 </body>
