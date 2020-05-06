@@ -1,0 +1,39 @@
+{
+  "name": "2020-05-04-interactive-calculator",
+  "version": "1.0.0",
+  "description": "Even junior developers can contribute to our platform!",
+  "main": "convertor.js",
+  "dependencies": {
+    "bootstrap": "^4.4.1"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.0.0",
+    "imagemin-cli": "^3.0.0",
+    "lite-server": "^2.3.0",
+    "node-sass": "^4.12.0",
+    "onchange": "^3.3.0",
+    "parallelshell": "^3.0.1",
+    "rimraf": "^2.6.2",
+    "usemin-cli": "^0.5.1"
+  },
+  "scripts": {
+    "build": "npm run usemin",
+    "scss": "node-sass -o css/ css/",
+    "lite": "lite-server",
+    "start": "npm run watch:all",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "usemin": "usemin index.html -d dist --htmlmin -o dist/index.html",
+    "watch:scss": "onchange \"css/*.scss\" -- npm run scss",
+    "watch:all": "parallelshell \"npm run watch:scss\" \"npm run lite\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodingMerc/2020-05-04-Interactive-Calculator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodingMerc/2020-05-04-Interactive-Calculator/issues"
+  },
+  "homepage": "https://github.com/CodingMerc/2020-05-04-Interactive-Calculator#readme"
+}
